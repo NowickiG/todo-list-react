@@ -37,10 +37,22 @@ function App() {
     }));
   };
 
+
   const setAllDone = () => {
     setTasks(tasks => tasks.map(task => ({
       ...task, done: true
     })))
+  };
+
+  const addNewTask = (content) => {
+    setTasks(tasks => [
+      ...tasks,
+      {
+        content,
+        done: false,
+        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+      },
+    ])
   };
 
   return (
@@ -48,7 +60,7 @@ function App() {
       <Header title="Lista zakupów" />
       <Section
         title="Dodaj nowe produkty"
-        body={<Form />}
+        body={<Form addNewTask={addNewTask} />}
       />
 
       <Section
