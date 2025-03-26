@@ -18,6 +18,8 @@ const Form = ({ addNewTask }) => {
       onSubmit={onFormSubmit}
     >
       <input
+  
+        title="pole nie może być puste"
         autoFocus
         value={newTaskContent}
         className="form__input"
