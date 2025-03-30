@@ -8,17 +8,19 @@ const Form = ({ addNewTask }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     const trimmedContent = newTaskContent.trim();
-    if (trimmedContent !== "") {
+    if (!trimmedContent) {
+      return
+    }
       addNewTask(trimmedContent);
       setNewTaskContent("");
-    }
+    
   };
   return (
     <form className="form"
       onSubmit={onFormSubmit}
     >
       <input
-  
+
         title="pole nie może być puste"
         autoFocus
         value={newTaskContent}
